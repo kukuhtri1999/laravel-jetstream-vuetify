@@ -7,6 +7,7 @@ import InputError from "@/Components/InputError.vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
+import AuthLayout from "@/Layouts/AuthLayout.vue";
 
 defineProps({
   canResetPassword: Boolean,
@@ -33,32 +34,24 @@ const submit = () => {
 
 <template>
   <Head title="Log in" />
+  <AuthLayout>
+    <AuthenticationCard>
+      <template #logo>
+        <AuthenticationCardLogo />
+      </template>
 
-  <AuthenticationCard>
-    <template #logo>
-      <AuthenticationCardLogo />
-    </template>
+      <div class="mb-8 text-center">
+        <p>Please sign-in to your account and start the adventure</p>
+      </div>
 
-    <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-      {{ status }}
-    </div>
+      <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+        {{ status }}
+      </div>
 
-    <form @submit.prevent="submit">
-      <v-text-field
-        label="Email"
-        variant="outlined"
-        id="email"
-        v-model="form.email"
-        type="email"
-        class="mt-1 block w-full"
-        required
-        autofocus
-        autocomplete="username"
-      ></v-text-field>
-      <InputError class="mt-2" :message="form.errors.email" />
-      <!-- <div>
-        <InputLabel for="email" value="Email" />
-        <TextInput
+      <form @submit.prevent="submit">
+        <v-text-field
+          label="Email"
+          variant="outlined"
           id="email"
           v-model="form.email"
           type="email"
@@ -66,58 +59,56 @@ const submit = () => {
           required
           autofocus
           autocomplete="username"
-        />
+        ></v-text-field>
         <InputError class="mt-2" :message="form.errors.email" />
-      </div> -->
 
-      <VTextField
-        label="Password"
-        variant="outlined"
-        id="password"
-        v-model="form.password"
-        type="password"
-        class="mt-1 block w-full"
-        required
-        autocomplete="current-password"
-      ></VTextField>
-      <InputError class="mt-2" :message="form.errors.password" />
-      <!-- <div class="mt-4">
-        <InputLabel for="password" value="Password" />
-        <TextInput
+        <VTextField
+          label="Password"
+          variant="outlined"
           id="password"
           v-model="form.password"
           type="password"
           class="mt-1 block w-full"
           required
           autocomplete="current-password"
-        />
+        ></VTextField>
         <InputError class="mt-2" :message="form.errors.password" />
-      </div> -->
 
-      <div class="block mt-4">
-        <label class="flex items-center">
-          <Checkbox v-model:checked="form.remember" name="remember" />
-          <span class="ms-2 text-sm text-gray-600">Remember me</span>
-        </label>
-      </div>
+        <div class="flex justify-between">
+          <label class="flex items-center align-middle">
+            <VCheckbox
+              v-model:checked="form.remember"
+              color="primary"
+              label="Remember me"
+              name="remember"
+            />
+          </label>
+          <Link
+            v-if="canResetPassword"
+            :href="route('password.request')"
+            class="mt-4 text-primary font-bold hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Forgot password?
+          </Link>
+        </div>
 
-      <div class="flex items-center justify-end mt-4">
+        <div class="flex items-center justify-end">
+          <PrimaryButton
+            :class="{ 'opacity-25': form.processing }"
+            :disabled="form.processing"
+          >
+            Log in
+          </PrimaryButton>
+        </div>
+      </form>
+      <div class="mt-5 flex justify-center">
+        <span>New to our Application?</span>
         <Link
-          v-if="canResetPassword"
-          :href="route('password.request')"
-          class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          :href="route('register')"
+          class="ml-1 text-primary font-bold hover:text-gray-900"
+          >Register here</Link
         >
-          Forgot your password?
-        </Link>
-
-        <PrimaryButton
-          class="ms-4"
-          :class="{ 'opacity-25': form.processing }"
-          :disabled="form.processing"
-        >
-          Log in
-        </PrimaryButton>
       </div>
-    </form>
-  </AuthenticationCard>
+    </AuthenticationCard>
+  </AuthLayout>
 </template>
