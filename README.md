@@ -2,6 +2,13 @@
 
 Welcome to the Laravel Jetstream, Inertia, Tailwind CSS, and Vuetify Starter Template! This project provides a solid foundation for building modern web applications with Laravel on the backend and Inertia.js for server-side rendering on the frontend, styled using Tailwind CSS and Vuetify.
 
+## Created by: Kukuh Tri Winarno Nugroho
+
+- LinkedIn: [Kukuh Tri Winarno Nugroho](https://www.linkedin.com/in/kukuhtri99/)
+- Website: [kukuhtri.my.id](https://kukuhtri.my.id/)
+
+---
+
 ## Introduction
 
 This starter template allows you to quickly scaffold a new Laravel web application using some of the most popular frameworks and libraries like:
