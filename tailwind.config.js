@@ -26,6 +26,7 @@ export default {
       },
       white: "#ffffff",
       primary: "#00a65a",
+      primaryBg: "#b3ffce",
       secondary: "#8863f9",
     },
     screens: {

@@ -27,21 +27,25 @@ This starter template allows you to quickly scaffold a new Laravel web applicati
 
 Together these tools allow you to build a robust, secure and good-looking web app really quickly. The combination of Laravel and Vue.js is especially powerful in 2022.
 
-## Features
+## Differences Features with Original One
 
-Some of the main features you get out of the box with this starter template include:
+I have made several exciting changes compared to the original Laravel Jetstream template to make this starter template more visually appealing and user friendly:
 
-- Laravel Breeze scaffolding including authentication, registration, email verification and password reset. Never build boring auth screens again!
+- Redesigned the default Jetstream authentication screens with a sleek, modern layout using custom Tailwind CSS and Vuetify components. The login, register and password reset pages now have a premium theme-like style.
 
-- Inertia.js setup for server-side rendering and route handling. SEO and SPA goodness together.
+- Swapped out some of the standard Tailwind CSS form controls, buttons and other elements with matching Vuetify components. This gives the app a more polished and consistent look.
 
-- Vue.js as frontend framework. Approachable, versatile and lightning fast.
+- Created a new main dashboard page with material design cards, charts and metrics for an at-a-glance overview. Replaced the default home page.
 
-- Tailwind CSS for styling. Rapidly build custom designs without fighting CSS.
+- Changed the overall application layout to use a clean vertical nav menu on the left instead of top navigation. Also added some nice custom components like user avatar and notifications.
 
-- Vuetify component library. Quickly build beautiful interfaces inspired by Material Design.
+- Added several example page templates like settings, profile, tasks etc to demonstrate different layouts and UI elements.
 
-- Basic layouts and components to build on top of. The starter kit provides core screens and components.
+- Configured Vuetify theme colors and custom CSS to complement the Tailwind defaults. Achieved a cohesive material design styling throughout.
+
+- Set up Vuex for state management instead of relying solely on local component state. Great for scaling up bigger apps.
+
+- And more! Explore the code to see all the changes.
 
 ## Prerequisites
 
