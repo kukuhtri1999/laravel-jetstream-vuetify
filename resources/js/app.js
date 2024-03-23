@@ -28,6 +28,7 @@ const vuetify = createVuetify({
           info: "#2196F3", // Info color
           success: "#4CAF50", // Success color
           warning: "#FFC107", // Warning color}
+          greenlight: "#ddfff0",
         },
       },
     },

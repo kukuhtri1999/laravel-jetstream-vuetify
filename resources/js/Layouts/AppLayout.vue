@@ -17,6 +17,21 @@ const showingNavigationDropdown = ref(false);
 const drawer = ref(true);
 const rail = ref(true);
 
+const navLinks = ref([
+  {
+    icon: "mdi-home-city",
+    title: "Dashboard",
+    value: "dashboard",
+    href: route("dashboard"),
+  },
+  {
+    icon: "mdi-package-variant-closed ",
+    title: "Products",
+    value: "products.index",
+    href: route("products.index"),
+  }, // Example href
+]);
+
 watchEffect(() => {
   // Detect viewport width and update drawer value accordingly
   const isMobile = window.innerWidth <= 480;
@@ -55,45 +70,33 @@ const logout = () => {
           @click="rail = false"
           class="!shadow-[1px_0px_25px_5px_rgba(0,0,0,0.1)] py-2"
         >
-          <v-list-item
-            prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
-            title="John Leider"
-            nav
-          >
-            <template v-slot:append>
-              <v-btn
-                icon="mdi-chevron-left"
-                variant="text"
-                @click.stop="rail = !rail"
-              ></v-btn>
-            </template>
-          </v-list-item>
+          <div class="pl-2 flex justify-between">
+            <ApplicationMark class="h-14 p-2 pl-0 w-auto"> </ApplicationMark>
+            <v-btn
+              icon="mdi-chevron-left"
+              variant="text"
+              class="p-2 m-1"
+              @click.stop="rail = !rail"
+            ></v-btn>
+          </div>
 
           <v-divider></v-divider>
 
-          <v-list density="compact" nav>
-            <NavLink
-              :href="route('dashboard')"
-              class="w-full"
-              :active="route().current('dashboard')"
-              ><v-list-item
-                prepend-icon="mdi-home-city"
-                title="Dasboard"
-                value="dasboard"
+          <v-list density="compact" class="!p-0" nav>
+            <template v-for="navLink in navLinks" :key="navLink.value">
+              <NavLink
+                :href="navLink.href"
                 class="w-full"
-              ></v-list-item
-            ></NavLink>
-
-            <v-list-item
-              prepend-icon="mdi-account"
-              title="My Account"
-              value="account"
-            ></v-list-item>
-            <v-list-item
-              prepend-icon="mdi-account-group-outline"
-              title="Users"
-              value="users"
-            ></v-list-item>
+                :active="route().current(navLink.value)"
+              >
+                <v-list-item
+                  :prepend-icon="navLink.icon"
+                  :title="navLink.title"
+                  :value="navLink.value"
+                  class="w-full"
+                ></v-list-item>
+              </NavLink>
+            </template>
           </v-list>
         </VNavigationDrawer>
       </VLayout>
@@ -475,7 +478,14 @@ const logout = () => {
 
       <!-- Page Content -->
       <main class="max-w-7xl mx-auto flex justify-center">
-        <slot />
+        <VCard
+          class="pa-3 my-6 w-full"
+          variant="elevated"
+          elevation="2"
+          :title="title"
+        >
+          <slot />
+        </VCard>
       </main>
     </div>
   </div>
