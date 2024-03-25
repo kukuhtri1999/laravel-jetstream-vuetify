@@ -61,7 +61,7 @@ const logout = () => {
 
     <Banner />
 
-    <VCard>
+    <VCard class="!z-50">
       <VLayout>
         <VNavigationDrawer
           v-model="drawer"
