@@ -1,24 +1,23 @@
 <script setup>
-import { Head, useForm } from "@inertiajs/vue3";
-import AuthenticationCard from "@/Components/AuthenticationCard.vue";
-import AuthenticationCardLogo from "@/Components/AuthenticationCardLogo.vue";
-import InputError from "@/Components/InputError.vue";
-import InputLabel from "@/Components/InputLabel.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TextInput from "@/Components/TextInput.vue";
-import AuthLayout from "@/Layouts/AuthLayout.vue";
-import { Link } from "@inertiajs/vue3";
+import { Head, useForm, Link } from '@inertiajs/vue3';
+import AuthenticationCard from '@/Components/AuthenticationCard.vue';
+import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
+import InputError from '@/Components/InputError.vue';
+// import InputLabel from '@/Components/InputLabel.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+// import TextInput from '@/Components/TextInput.vue';
+import AuthLayout from '@/Layouts/AuthLayout.vue';
 
 defineProps({
   status: String,
 });
 
 const form = useForm({
-  email: "",
+  email: '',
 });
 
 const submit = () => {
-  form.post(route("password.email"));
+  form.post(route('password.email'));
 };
 </script>
 

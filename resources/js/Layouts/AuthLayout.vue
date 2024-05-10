@@ -1,7 +1,5 @@
 <script setup>
-const getImageUrl = (imageName) => {
-  return `/storage/images/${imageName}`;
-};
+const getImageUrl = (imageName) => `/storage/images/${imageName}`;
 </script>
 
 <template>

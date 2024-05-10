@@ -1,12 +1,12 @@
 <script setup>
-import { ref, watchEffect } from "vue";
-import { Head, Link, router } from "@inertiajs/vue3";
-import ApplicationMark from "@/Components/ApplicationMark.vue";
-import Banner from "@/Components/Banner.vue";
-import Dropdown from "@/Components/Dropdown.vue";
-import DropdownLink from "@/Components/DropdownLink.vue";
-import NavLink from "@/Components/NavLink.vue";
-import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
+import { ref, watchEffect } from 'vue';
+import { Head, Link, router } from '@inertiajs/vue3';
+import ApplicationMark from '@/Components/ApplicationMark.vue';
+import Banner from '@/Components/Banner.vue';
+import Dropdown from '@/Components/Dropdown.vue';
+import DropdownLink from '@/Components/DropdownLink.vue';
+import NavLink from '@/Components/NavLink.vue';
+import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
 defineProps({
   title: String,
@@ -19,16 +19,16 @@ const rail = ref(true);
 
 const navLinks = ref([
   {
-    icon: "mdi-home-city",
-    title: "Dashboard",
-    value: "dashboard",
-    href: route("dashboard"),
+    icon: 'mdi-home-city',
+    title: 'Dashboard',
+    value: 'dashboard',
+    href: route('dashboard'),
   },
   {
-    icon: "mdi-package-variant-closed ",
-    title: "Products",
-    value: "products.index",
-    href: route("products.index"),
+    icon: 'mdi-package-variant-closed ',
+    title: 'Products',
+    value: 'products.index',
+    href: route('products.index'),
   }, // Example href
 ]);
 
@@ -40,7 +40,7 @@ watchEffect(() => {
 
 const switchToTeam = (team) => {
   router.put(
-    route("current-team.update"),
+    route('current-team.update'),
     {
       team_id: team.id,
     },
@@ -51,7 +51,7 @@ const switchToTeam = (team) => {
 };
 
 const logout = () => {
-  router.post(route("logout"));
+  router.post(route('logout'));
 };
 </script>
 
@@ -72,32 +72,32 @@ const logout = () => {
         >
           <div class="pl-2 flex justify-between">
             <ApplicationMark class="h-14 p-2 pl-0 w-auto"> </ApplicationMark>
-            <v-btn
+            <VBtn
               icon="mdi-chevron-left"
               variant="text"
               class="p-2 m-1"
               @click.stop="rail = !rail"
-            ></v-btn>
+            ></VBtn>
           </div>
 
-          <v-divider></v-divider>
+          <VDivider></VDivider>
 
-          <v-list density="compact" class="!p-0" nav>
+          <VList density="compact" class="!p-0" nav>
             <template v-for="navLink in navLinks" :key="navLink.value">
               <NavLink
                 :href="navLink.href"
                 class="w-full"
                 :active="route().current(navLink.value)"
               >
-                <v-list-item
+                <VListItem
                   :prepend-icon="navLink.icon"
                   :title="navLink.title"
                   :value="navLink.value"
                   class="w-full"
-                ></v-list-item>
+                ></VListItem>
               </NavLink>
             </template>
-          </v-list>
+          </VList>
         </VNavigationDrawer>
       </VLayout>
     </VCard>

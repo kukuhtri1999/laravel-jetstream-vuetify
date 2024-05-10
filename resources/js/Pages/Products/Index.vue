@@ -1,31 +1,31 @@
 <script setup>
-import AppLayout from "@/Layouts/AppLayout.vue";
-import { ref } from "vue";
+import { ref } from 'vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 
 // Dummy data
 const dummyData = ref([
   {
     id: 1,
-    name: "Dummy Product 1",
-    description: "Description of Dummy Product 1",
+    name: 'Dummy Product 1',
+    description: 'Description of Dummy Product 1',
   },
   {
     id: 2,
-    name: "Dummy Product 2",
-    description: "Description of Dummy Product 2",
+    name: 'Dummy Product 2',
+    description: 'Description of Dummy Product 2',
   },
   {
     id: 3,
-    name: "Dummy Product 3",
-    description: "Description of Dummy Product 3",
+    name: 'Dummy Product 3',
+    description: 'Description of Dummy Product 3',
   },
 ]);
 
 // Table headers
 const headers = ref([
-  { text: "ID", align: "start", value: "id" },
-  { text: "Name", value: "name" },
-  { text: "Description", value: "description" },
+  { text: 'ID', align: 'start', value: 'id' },
+  { text: 'Name', value: 'name' },
+  { text: 'Description', value: 'description' },
   // Add more headers as needed
 ]);
 
@@ -46,12 +46,12 @@ const getServerData = async () => {
 
 <template>
   <AppLayout title="Products">
-    <v-data-table-server
+    <VDataTableServer
       :headers="headers"
       :items="dummyData"
       :total-items="totalItems"
       :loading="loading"
-      :options.sync="options"
+      v-model:options="options"
       :server-items-length="serverItemsLength"
       :items-per-page="options.itemsPerPage"
       @update:options="getServerData"
@@ -65,6 +65,6 @@ const getServerData = async () => {
           <!-- Add more columns as needed -->
         </tr>
       </template>
-    </v-data-table-server>
+    </VDataTableServer>
   </AppLayout>
 </template>

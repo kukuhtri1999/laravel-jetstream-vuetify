@@ -1,13 +1,13 @@
 <script setup>
-import { Head, Link, useForm } from "@inertiajs/vue3";
-import AuthenticationCard from "@/Components/AuthenticationCard.vue";
-import AuthenticationCardLogo from "@/Components/AuthenticationCardLogo.vue";
-import Checkbox from "@/Components/Checkbox.vue";
-import InputError from "@/Components/InputError.vue";
-import InputLabel from "@/Components/InputLabel.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TextInput from "@/Components/TextInput.vue";
-import AuthLayout from "@/Layouts/AuthLayout.vue";
+import { Head, Link, useForm } from '@inertiajs/vue3';
+import AuthenticationCard from '@/Components/AuthenticationCard.vue';
+import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
+// import Checkbox from '@/Components/Checkbox.vue';
+import InputError from '@/Components/InputError.vue';
+// import InputLabel from '@/Components/InputLabel.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+// import TextInput from '@/Components/TextInput.vue';
+import AuthLayout from '@/Layouts/AuthLayout.vue';
 
 defineProps({
   canResetPassword: Boolean,
@@ -15,8 +15,8 @@ defineProps({
 });
 
 const form = useForm({
-  email: "",
-  password: "",
+  email: '',
+  password: '',
   remember: false,
 });
 
@@ -24,10 +24,10 @@ const submit = () => {
   form
     .transform((data) => ({
       ...data,
-      remember: form.remember ? "on" : "",
+      remember: form.remember ? 'on' : '',
     }))
-    .post(route("login"), {
-      onFinish: () => form.reset("password"),
+    .post(route('login'), {
+      onFinish: () => form.reset('password'),
     });
 };
 </script>
@@ -49,7 +49,7 @@ const submit = () => {
       </div>
 
       <form @submit.prevent="submit">
-        <v-text-field
+        <VTextField
           label="Email"
           variant="outlined"
           id="email"
@@ -59,7 +59,7 @@ const submit = () => {
           required
           autofocus
           autocomplete="username"
-        ></v-text-field>
+        ></VTextField>
         <InputError class="mt-2" :message="form.errors.email" />
 
         <VTextField
