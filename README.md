@@ -74,6 +74,12 @@ To get started with this template, follow these simple steps:
 git clone https://github.com/kukuhtri1999/laravel-jetstream-vuetify
 ```
 
+then go to project directory (you can rename the directory later)
+
+```
+cd laravel-jetstream-vuetify
+```
+
 2. Install dependencies:
 
 ```
