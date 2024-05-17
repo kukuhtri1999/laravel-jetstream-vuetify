@@ -1,6 +1,6 @@
 # Laravel Jetstream, Inertia, Tailwind CSS, and Vuetify Starter Template
 
-Welcome to the Laravel Jetstream, Inertia, Tailwind CSS, and Vuetify Starter Template! This project provides a solid foundation for building modern web applications with Laravel on the backend and Inertia.js for server-side rendering on the frontend, styled using Tailwind CSS and Vuetify.
+Welcome to the Laravel Jetstream, Inertia, Tailwind CSS, and Vuetify Starter Template! This project provides a solid foundation for building modern web applications with Laravel 11 on the backend and Inertia.js for server-side rendering on the frontend, styled using Tailwind CSS and Vuetify.
 
 ## Created by: Kukuh Tri Winarno Nugroho
 
@@ -51,7 +51,7 @@ I have made several exciting changes compared to the original Laravel Jetstream 
 
 - PHP >= 8.2
 
-  - You will need PHP 8.2 or higher installed on your system to run Laravel 9. Installation instructions can be found at https://www.php.net/manual/en/install.php
+  - You will need PHP 8.2 or higher installed on your system to run Laravel 11. Installation instructions can be found at https://www.php.net/manual/en/install.php
 
 - Composer
 
